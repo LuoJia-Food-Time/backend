@@ -47,6 +47,14 @@ public class Goods {
 
     private Integer saleCount;
 
+    public Integer getNutritionId() {
+        return nutritionId;
+    }
+
+    public void setNutritionId(Integer nutritionId) {
+        this.nutritionId = nutritionId;
+    }
+
     public Integer getSaleCount() {
         return saleCount;
     }
