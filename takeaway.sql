@@ -203,10 +203,13 @@ CREATE TABLE `orders`  (
   `discount` decimal(10, 2) NULL DEFAULT NULL COMMENT '优惠金额，使用悬赏金',
   `actual` decimal(10, 2) NULL DEFAULT NULL COMMENT '实付款',
   -- TODO
-  `bounty_id` int(11) NULL DEFAULT NULL COMMENT '关联的悬赏任务ID', 
+  --`bounty_id` int(11) NULL DEFAULT NULL COMMENT '关联的悬赏任务ID', 
   `comment` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '备注',
   `cover` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '缩略图',
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '名称',
+  `reward` decimal(10, 2) NULL DEFAULT NULL COMMENT '悬赏金',
+  `helptake_id` int(11) NULL DEFAULT NULL COMMENT '帮拿订单ID',
+  `dormnumber` int(11) NULL DEFAULT NULL COMMENT '宿舍号',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '订单表' ROW_FORMAT = DYNAMIC;
 
@@ -244,14 +247,14 @@ CREATE TABLE `user`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '用户表' ROW_FORMAT = DYNAMIC;
 
--- TODO
+/* -- TODO
 DROP TABLE IF EXISTS `user_bounty`;
 CREATE TABLE `user_bounty` (
   `user_id` int(11) NOT NULL COMMENT '用户ID',
   `balance` decimal(10, 2) NOT NULL DEFAULT '0.00' COMMENT '悬赏金余额',
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户悬赏金表';
-
+ */
 -- TODO
 DROP TABLE IF EXISTS `reward`;
 CREATE TABLE `reward` (
@@ -375,10 +378,10 @@ INSERT INTO `notice` (`title`, `content`, `time`, `user`) VALUES
 ('重要通知', '本店特价活动开始了！', '2024-03-14', '管理员');
 
 -- 生成orders表示例数据
-INSERT INTO `orders` (`order_no`, `time`, `pay_type`, `pay_time`, `status`, `business_id`, `user`, `phone`, `address`, `user_id`, `amount`, `discount`, `actual`, `bounty_id`, `comment`, `cover`, `name`) VALUES
-('20240314001', '2024-03-14 10:00:00', '在线支付', '2024-03-14 10:05:00', '已完成', 1, '张三', '13888888888', '上海市浦东新区', 1, 58.60, 0.00, 58.60, NULL, '无', 'order1.jpg', '订单1'),
-('20240314002', '2024-03-15 11:30:00', '货到付款', NULL, '待发货', 2, '李四', '13999999999', '北京市朝阳区', 2, 12.50, 0.00, 12.50, NULL, '加急配送', 'order2.jpg', '订单2'),
-('20240314003', '2024-03-16 13:45:00', '在线支付', '2024-03-16 14:00:00', '已完成', 3, '王五', '13666666666', '广州市天河区', 3, 23.90, 0.00, 23.90, NULL, '无', 'order3.jpg', '订单3');
+INSERT INTO `orders` (`order_no`, `time`, `pay_type`, `pay_time`, `status`, `business_id`, `user`, `phone`, `address`, `user_id`, `amount`, `discount`, `actual`, /*`bounty_id`,*/ `comment`, `cover`, `name`, `reward`, `helptake_id`, `dormnumber`) VALUES
+('20240314001', '2024-03-14 10:00:00', '在线支付', '2024-03-14 10:05:00', '已完成', 1, '张三', '13888888888', '上海市浦东新区', 1, 58.60, 0.00, 58.60, '无', 'order1.jpg', '订单1', NULL, NULL, NULL),
+('20240314002', '2024-03-15 11:30:00', '货到付款', NULL, '待发货', 2, '李四', '13999999999', '北京市朝阳区', 2, 12.50, 0.00, 12.50, '加急配送', 'order2.jpg', '订单2', NULL, NULL, NULL),
+('20240314003', '2024-03-16 13:45:00', '在线支付', '2024-03-16 14:00:00', '已完成', 3, '王五', '13666666666', '广州市天河区', 3, 23.90, 0.00, 23.90, '无', 'order3.jpg', '订单3', NULL, NULL, NULL);
 
 -- 生成orders_item表示例数据
 INSERT INTO `orders_item` (`order_id`, `goods_name`, `goods_img`, `price`, `num`, `goods_id`) VALUES
@@ -393,10 +396,10 @@ INSERT INTO `user` (`username`, `password`, `name`, `avatar`, `role`, `sex`, `ph
 ('user3', 'pwd789', '王五', 'avatar3.jpg', 'user', '男', '18777777777');
 
 -- 生成user_bounty表示例数据
-INSERT INTO `user_bounty` (`user_id`, `balance`) VALUES
+/* INSERT INTO `user_bounty` (`user_id`, `balance`) VALUES
 (1, 100.00),
 (2, 50.00),
-(3, 80.00);
+(3, 80.00); */
 
 -- 生成reward表示例数据
 INSERT INTO `reward` (`order_id`, `user1_id`, `user2_id`, `description`, `reward`, `status`, `created_at`, `updated_at`) VALUES

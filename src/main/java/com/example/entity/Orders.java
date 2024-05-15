@@ -36,8 +36,6 @@ public class Orders implements Serializable {
     private Integer userId;
     /** 订单总价 */
     private BigDecimal amount;
-    /**悬赏单的id*/
-    private int bountyId;
     /** 优惠金额 */
     private BigDecimal discount;
     /** 实付款 */
@@ -52,6 +50,12 @@ public class Orders implements Serializable {
     private String businessName;
     /** 消费者名称 */
     private String userName;
+    /**悬赏金*/
+    private BigDecimal reward;
+    /**帮拿ID*/
+    private Integer helptake_id;
+    /**宿舍号*/
+    private Integer dormnumber;
 
     public Integer getId() {
         return id;
@@ -203,5 +207,29 @@ public class Orders implements Serializable {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public BigDecimal getReward() {
+        return reward;
+    }
+
+    public void setReward(BigDecimal reward) {
+        this.reward = reward;
+    }
+
+    public Integer getHelptake_id() {
+        return helptake_id;
+    }
+
+    public void setHelptake_id(Integer helptake_id) {
+        this.helptake_id = helptake_id;
+    }
+
+    public Integer getDormnumber() {
+        return dormnumber;
+    }
+
+    public void setDormnumber(Integer dormnumber) {
+        this.dormnumber = dormnumber;
     }
 }
