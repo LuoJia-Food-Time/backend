@@ -16,7 +16,7 @@
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
-
+use takeaway ;
 -- ----------------------------
 -- Table structure for address
 -- ----------------------------
@@ -30,7 +30,13 @@ CREATE TABLE `address`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '收货地址表' ROW_FORMAT = DYNAMIC;
 
-
+INSERT INTO `address` VALUES (6, '武汉洪山区', '张pw', '13988776699', 4);
+INSERT INTO `address` VALUES (7, '武汉洪山区', '张pw', '13988997788', 4);
+INSERT INTO `address` VALUES (8, '武汉洪山区', '张pw', '13988776699', 4);
+INSERT INTO `address` VALUES (9, '武汉洪山区', '张pw', '13988997799', 4);
+INSERT INTO `address` VALUES (10, '武汉洪山区', '张pw', '13988776699', 4);
+INSERT INTO `address` VALUES (14, '武汉洪山区', '张pw', '13899778866', 4);
+INSERT INTO `address` VALUES (15, '武汉洪山区', '张pw', '13899887788', 11);
 -- ----------------------------
 -- Table structure for admin
 -- ----------------------------
@@ -47,7 +53,7 @@ CREATE TABLE `admin`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '管理员' ROW_FORMAT = DYNAMIC;
 
-
+INSERT INTO `admin` VALUES (1, 'admin', 'admin', '管理员', 'http://localhost:9090/files/1697438073596-avatar.png', 'ADMIN', '13677889922', 'admin@xm.com');
 -- ----------------------------
 -- Table structure for banner
 -- ----------------------------
@@ -59,7 +65,8 @@ CREATE TABLE `banner`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '广告表' ROW_FORMAT = DYNAMIC;
 
-
+INSERT INTO `banner` VALUES (5, 'http://localhost:9090/files/1698370691508-微信截图_20231019102827.png', 14);
+INSERT INTO `banner` VALUES (6, 'http://localhost:9090/files/1698371275262-微信截图_20231019102729.png', 13);
 -- ----------------------------
 -- Table structure for business
 -- ----------------------------
@@ -80,7 +87,14 @@ CREATE TABLE `business`  (
   `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '类型',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '商家表' ROW_FORMAT = DYNAMIC;
-
+-- ----------------------------
+-- Records of business
+-- ----------------------------
+INSERT INTO `business` VALUES (10, 'naixue', '123', '奈雪的茶', 'http://localhost:9090/files/1698200628077-微信截图_20231019092733.png', 'BUSINESS', '0551-67889988', '奈雪的茶，非常奈斯', '街道口', 'http://localhost:9090/files/1698200631776-微信截图_20231018161554.png', '通过', '9:00-21:00', '奶茶饮品');
+INSERT INTO `business` VALUES (13, 'hug', '123', '汉堡王', 'http://localhost:9090/files/1698201477026-QQ截图20231022180706.png', 'BUSINESS', '13788997788', '量大好吃！', '广埠屯', 'http://localhost:9090/files/1698201479784-微信截图_20231018161554.png', '通过', '9:00-22:00', '炸鸡汉堡');
+INSERT INTO `business` VALUES (14, 'kwk', '123', '奶茶王', 'http://localhost:9090/files/1698288093924-微信截图_20231019092635.png', 'BUSINESS', '13788997788', '美味奶茶，非常棒棒', '武大路', 'http://localhost:9090/files/1698288138770-微信截图_20231018161554.png', '通过', '9:00-21:00', '奶茶饮品');
+INSERT INTO `business` VALUES (15, 'kwk', '123', '幸运咖', 'http://localhost:9090/files/1698288093924-微信截图_20231019092635.png', 'BUSINESS', '13788997788', '非常棒棒', '武大路', 'http://localhost:9090/files/1698288138770-微信截图_20231018161554.png', '通过', '9:00-21:00', '轻食简餐');
+INSERT INTO `business` VALUES (16, 'wuc', '123', '小武哥哥', 'http://localhost:9090/files/1698998161478-咖啡.png', 'BUSINESS', '13899778899', '小武哥哥是真的骚', '珞珈山', 'http://localhost:9090/files/1698998253959-微信截图_20231018161554.png', '通过', '9:00-21:00', '奶茶饮品');
 
 -- ----------------------------
 -- Table structure for cart
@@ -95,7 +109,11 @@ CREATE TABLE `cart`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 44 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '购物车' ROW_FORMAT = DYNAMIC;
 
-
+-- ----------------------------
+-- Records of cart
+-- ----------------------------
+INSERT INTO `cart` VALUES (36, 11, 1, 4, 14);
+INSERT INTO `cart` VALUES (37, 10, 1, 4, 14);
 
 -- ----------------------------
 -- Table structure for category
@@ -108,7 +126,17 @@ CREATE TABLE `category`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '商品分类' ROW_FORMAT = DYNAMIC;
 
-
+-- ----------------------------
+-- Records of category
+-- ----------------------------
+INSERT INTO `category` VALUES (1, '波波奶茶', 14);
+INSERT INTO `category` VALUES (2, '波霸汉堡', 13);
+INSERT INTO `category` VALUES (6, '芋泥奶茶', 14);
+INSERT INTO `category` VALUES (7, '炸鸡', 13);
+INSERT INTO `category` VALUES (8, '水果奶茶', 14);
+INSERT INTO `category` VALUES (10, '蓝山咖啡', 16);
+INSERT INTO `category` VALUES (11, '橙C美式', 16);
+INSERT INTO `category` VALUES (12, '猫屎咖啡', 16);
 
 
 -- ----------------------------
@@ -122,6 +150,12 @@ CREATE TABLE `collect`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '用户收藏' ROW_FORMAT = DYNAMIC;
 
+-- ----------------------------
+-- Records of collect
+-- ----------------------------
+INSERT INTO `collect` (id, business_id, user_id) VALUES (10, 14, 4);
+INSERT INTO `collect` (id, business_id, user_id) VALUES (11, 13, 4);
+INSERT INTO `collect` (id, business_id, user_id) VALUES (12, 16, 11);
 
 
 -- ----------------------------
@@ -140,7 +174,12 @@ CREATE TABLE `comment`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `user_id`(`user_id`, `order_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '评价表' ROW_FORMAT = DYNAMIC;
-
+-- ----------------------------
+-- Records of comment
+-- ----------------------------
+INSERT INTO `comment` VALUES (4, '非常好吃非常好吃非常好吃非常好吃非常好吃非常好吃非常好吃', 3.0, 4, 14, 13, '2023-11-03 10:19:49', NULL);
+INSERT INTO `comment` VALUES (17, '小武哥哥真的很好喝', 5.0, 11, 16, 15, '2023-11-03 16:14:05', NULL);
+INSERT INTO `comment` VALUES (18, '哈哈哈', 5.0, 11, 14, 16, '2023-11-03 16:15:33', NULL);
 
 
 -- ----------------------------
@@ -167,6 +206,23 @@ CREATE TABLE `goods`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '商品信息' ROW_FORMAT = DYNAMIC;
 
 
+-- ----------------------------
+-- Records of goods
+-- ----------------------------
+INSERT INTO `goods` VALUES (4, '芋泥奶茶', 19.00, 'http://localhost:9090/files/1698301107255-微信截图_20231019092635.png', '好喝不腻，秋天第一杯', '奶、茶', '香浓', '1杯', '2023-10-26', '上架', 1,1.0, 14, 6);
+INSERT INTO `goods` VALUES (5, '手剥葡萄', 18.00, 'http://localhost:9090/files/1698301459462-微信截图_20231019092653.png', '手剥葡萄，清爽怡人', '葡萄、奶茶', '清淡', '1杯', '2023-10-26', '下架', 1,0.9, 14, 8);
+INSERT INTO `goods` VALUES (6, '手剥葡萄', 18.00, 'http://localhost:9090/files/1698301459462-微信截图_20231019092653.png', '手剥葡萄，清爽怡人', '葡萄、奶茶', '清淡', '1杯', '2023-10-26', '下架',1, 0.9, 14, 8);
+INSERT INTO `goods` VALUES (7, '手剥葡萄', 18.00, 'http://localhost:9090/files/1698301459462-微信截图_20231019092653.png', '手剥葡萄，清爽怡人', '葡萄、奶茶', '清淡', '1杯', '2023-10-26', '下架',1, 0.9, 14, 8);
+INSERT INTO `goods` VALUES (8, '手剥葡萄', 18.00, 'http://localhost:9090/files/1698301459462-微信截图_20231019092653.png', '手剥葡萄，清爽怡人', '葡萄、奶茶', '清淡', '1杯', '2023-10-26', '下架',1, 0.9, 14, 8);
+INSERT INTO `goods` VALUES (9, '手剥葡萄', 18.00, 'http://localhost:9090/files/1698301459462-微信截图_20231019092653.png', '手剥葡萄，清爽怡人', '葡萄、奶茶', '清淡', '1杯', '2023-10-26', '下架', 1,0.9, 14, 8);
+INSERT INTO `goods` VALUES (10, '手剥葡萄', 18.00, 'http://localhost:9090/files/1698301459462-微信截图_20231019092653.png', '手剥葡萄，清爽怡人', '葡萄、奶茶', '清淡', '1杯', '2023-10-26', '下架',1, 0.9, 14, 8);
+INSERT INTO `goods` VALUES (11, '手剥葡萄', 18.00, 'http://localhost:9090/files/1698301459462-微信截图_20231019092653.png', '手剥葡萄，清爽怡人', '葡萄、奶茶', '清淡', '1杯', '2023-10-26', '下架', 1,0.9, 14, 8);
+INSERT INTO `goods` VALUES (12, '橙C美式咖啡', 19.00, 'http://localhost:9090/files/1698998424558-咖啡.png', '橙C美式咖啡', '咖啡', '苦、香', '杯', '2023-11-03', '上架',1, 0.8, 16, 11);
+INSERT INTO `goods` VALUES (13, '蓝山咖啡', 19.00, 'http://localhost:9090/files/1698998424558-咖啡.png', '猫屎咖啡', '咖啡', '苦、香', '杯', '2023-11-03', '上架',1, 0.8, 16, 10);
+INSERT INTO `goods` VALUES (14, '猫屎咖啡', 19.00, 'http://localhost:9090/files/1698998424558-咖啡.png', '猫屎咖啡', '咖啡', '苦、香', '杯', '2023-11-03', '上架',1, 0.8, 16, 12);
+INSERT INTO `goods` VALUES (15, '怪味咖啡', 19.00, 'http://localhost:9090/files/1699000325898-微信截图_20231103163159.png', '猫屎咖啡', '咖啡', '苦、香', '杯', '2023-11-03', '上架',1, 0.8, 16, 12);
+INSERT INTO `goods` VALUES (16, '森森咖啡', 19.00, 'http://localhost:9090/files/1699000254169-微信截图_20231103162859.png', '猫屎咖啡', '咖啡', '苦、香', '杯', '2023-11-03', '上架',1, 0.8, 16, 12);
+INSERT INTO `goods` VALUES (17, '阿卡特里咖啡', 19.00, 'http://localhost:9090/files/1699000245921-微信截图_20231103162914.png', '猫屎咖啡', '咖啡', '苦、香', '杯', '2023-11-03', '上架',1, 0.8, 16, 12);
 
 -- ----------------------------
 -- Table structure for notice
@@ -181,8 +237,11 @@ CREATE TABLE `notice`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '公告信息表' ROW_FORMAT = DYNAMIC;
 
-
-
+-- ----------------------------
+-- Records of notice
+-- ----------------------------
+INSERT INTO `notice` VALUES (1, '今天珞珈食刻达正式上线，开始内测', '今天珞珈食刻达正式上线，开始内测', '2023-09-05', 'admin');
+INSERT INTO `notice` VALUES (2, '蒸蒸日上', '蒸蒸日上', '2023-10-31', 'admin');
 -- ----------------------------
 -- Table structure for orders
 -- ----------------------------
@@ -203,16 +262,27 @@ CREATE TABLE `orders`  (
   `discount` decimal(10, 2) NULL DEFAULT NULL COMMENT '优惠金额，使用悬赏金',
   `actual` decimal(10, 2) NULL DEFAULT NULL COMMENT '实付款',
   -- TODO
-  --`bounty_id` int(11) NULL DEFAULT NULL COMMENT '关联的悬赏任务ID', 
+  `bounty_id` int(11) NULL DEFAULT NULL COMMENT '关联的悬赏任务ID，已废弃并改成helptake_id', 
   `comment` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '备注',
   `cover` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '缩略图',
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '名称',
-  `reward` decimal(10, 2) NULL DEFAULT NULL COMMENT '悬赏金',
+    `reward` decimal(10, 2) NULL DEFAULT NULL COMMENT '悬赏金',
   `helptake_id` int(11) NULL DEFAULT NULL COMMENT '帮拿订单ID',
   `dormnumber` int(11) NULL DEFAULT NULL COMMENT '宿舍号',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '订单表' ROW_FORMAT = DYNAMIC;
-
+-- ----------------------------
+-- Records of orders
+-- ----------------------------
+INSERT INTO `orders` VALUES (1, '1716083249945939968', '2023-10-22 21:25:04', '支付宝', '2023-10-22 21:25:06', '待支付', 13, '张先生', '13988779988', '武汉大学国软C4', 2, 41.00, 4.10, 36.90,1, '麻辣', 'http://106.54.221.16:9092/files/1697972203437-QQ截图20231022185405.png', '原味特色卤味等2份餐品', NULL, NULL, NULL);
+INSERT INTO `orders` VALUES (3, '1716083249945939989', '2023-10-22 21:25:04', '支付宝', '2023-10-22 21:25:06', '待收货', 13, '张先生', '13988779988', '武汉大学国软C4', 2, 41.00, 4.10, 36.90,1, '麻辣', 'http://106.54.221.16:9092/files/1697972203437-QQ截图20231022185405.png', '原味特色卤味等2份餐品', NULL, NULL, NULL);
+INSERT INTO `orders` VALUES (6, '1719963575946547200', '2023-11-02 14:24:06', '支付宝', NULL, '待评价', 14, '小武哥哥1', '13988776699', '武汉大学国软C4', 4, 36.00, 3.60, 32.40, 1,'', 'http://localhost:9090/files/1698301459462-微信截图_20231019092653.png', '手剥葡萄等2件商品', NULL, NULL, NULL);
+INSERT INTO `orders` VALUES (7, '1719964991616421888', '2023-11-02 14:29:44', '支付宝', NULL, '待评价', 14, '小青哥', '13899778866', '武汉大学国软C4', 4, 36.00, 3.60, 32.40, 1,'', 'http://localhost:9090/files/1698301459462-微信截图_20231019092653.png', '手剥葡萄等2件商品', NULL, NULL, NULL);
+INSERT INTO `orders` VALUES (8, '1719979637664600064', '2023-11-02 15:27:55', '支付宝', NULL, '待评价', 14, '小青哥哥', '13988776699', '武汉大学国软C4', 4, 36.00, 3.60, 32.40, 1,'', 'http://localhost:9090/files/1698301459462-微信截图_20231019092653.png', '手剥葡萄等2件商品', NULL, NULL, NULL);
+INSERT INTO `orders` VALUES (13, '1719985872392646656', '2023-11-02 15:52:42', '支付宝', '2023-11-03 09:27:09', '已完成', 14, '青哥哥', '13988997788', '武汉大学国软C4', 4, 18.00, 1.80, 16.20, 1,'', 'http://localhost:9090/files/1698301459462-微信截图_20231019092653.png', '手剥葡萄等1件商品', NULL, NULL, NULL);
+INSERT INTO `orders` VALUES (15, '1720353457520959488', '2023-11-03 16:13:20', '微信支付', '2023-11-03 16:13:35', '已完成', 16, 'ass', '13899887788', '武汉大学国软C4', 11, 57.00, 11.40, 45.60, 1,'我要喝热的', 'http://localhost:9090/files/1698998424558-咖啡.png', '猫屎咖啡等3件商品', NULL, NULL, NULL);
+INSERT INTO `orders` VALUES (16, '1720353815659995136', '2023-11-03 16:14:46', '支付宝', '2023-11-03 16:14:54', '已完成', 14, 'ass', '13899887788', '武汉大学国软C4', 11, 18.00, 1.80, 16.20,1, '','http://localhost:9090/files/1698301459462-微信截图_20231019092653.png', '手剥葡萄等1件商品', NULL, NULL, NULL);
+INSERT INTO `orders` VALUES (17, '1720358616883978240', '2023-11-03 16:33:51', '支付宝', NULL, '待支付', 16, 'ass', '13899887788', '武汉大学国软C4', 11, 38.00, 7.60, 30.40, 1,'', 'http://localhost:9090/files/1699000325898-微信截图_20231103163159.png', '怪味咖啡等2件商品', NULL, NULL, NULL);
 
 
 -- ----------------------------
@@ -246,29 +316,52 @@ CREATE TABLE `user`  (
   `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '电话',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '用户表' ROW_FORMAT = DYNAMIC;
+INSERT INTO `orders_item` VALUES (1, 1, '卤猪蹄', 'http://106.54.221.16:9092/files/1697972203437-QQ截图20231022185405.png', 19.00, 1, NULL);
+INSERT INTO `orders_item` VALUES (2, 1, '卤猪蹄', 'http://106.54.221.16:9092/files/1697972203437-QQ截图20231022185405.png', 19.00, 1, NULL);
+INSERT INTO `orders_item` VALUES (3, 1, '卤猪蹄', 'http://106.54.221.16:9092/files/1697972203437-QQ截图20231022185405.png', 19.00, 1, NULL);
+INSERT INTO `orders_item` VALUES (8, 6, '手剥葡萄', 'http://localhost:9090/files/1698301459462-微信截图_20231019092653.png', 16.20, 1, NULL);
+INSERT INTO `orders_item` VALUES (9, 6, '手剥葡萄', 'http://localhost:9090/files/1698301459462-微信截图_20231019092653.png', 16.20, 1, NULL);
+INSERT INTO `orders_item` VALUES (10, 7, '手剥葡萄', 'http://localhost:9090/files/1698301459462-微信截图_20231019092653.png', 16.20, 2, NULL);
+INSERT INTO `orders_item` VALUES (11, 7, '手剥葡萄', 'http://localhost:9090/files/1698301459462-微信截图_20231019092653.png', 16.20, 1, NULL);
+INSERT INTO `orders_item` VALUES (12, 8, '手剥葡萄', 'http://localhost:9090/files/1698301459462-微信截图_20231019092653.png', 16.20, 2, NULL);
+INSERT INTO `orders_item` VALUES (13, 8, '手剥葡萄', 'http://localhost:9090/files/1698301459462-微信截图_20231019092653.png', 16.20, 1, NULL);
+INSERT INTO `orders_item` VALUES (19, 13, '手剥葡萄', 'http://localhost:9090/files/1698301459462-微信截图_20231019092653.png', 16.20, 1, NULL);
+INSERT INTO `orders_item` VALUES (22, 15, '猫屎咖啡', 'http://localhost:9090/files/1698998424558-咖啡.png', 15.20, 1, 14);
+INSERT INTO `orders_item` VALUES (23, 15, '蓝山咖啡', 'http://localhost:9090/files/1698998424558-咖啡.png', 15.20, 1, 13);
+INSERT INTO `orders_item` VALUES (24, 15, '橙C美式咖啡', 'http://localhost:9090/files/1698998424558-咖啡.png', 15.20, 1, 12);
+INSERT INTO `orders_item` VALUES (25, 16, '手剥葡萄', 'http://localhost:9090/files/1698301459462-微信截图_20231019092653.png', 16.20, 1, 11);
+INSERT INTO `orders_item` VALUES (26, 17, '怪味咖啡', 'http://localhost:9090/files/1699000325898-微信截图_20231103163159.png', 15.20, 1, 15);
+INSERT INTO `orders_item` VALUES (27, 17, '阿卡特里咖啡', 'http://localhost:9090/files/1699000245921-微信截图_20231103162914.png', 15.20, 1, 17);
+INSERT INTO `user` VALUES (2, 'acc', '123', '张pw', 'http://localhost:9090/files/1698204887435-微信截图_20231018172251.png', 'USER', '男', '13899887766');
+INSERT INTO `user` VALUES (4, 'aaa', '123', '张pw', 'http://localhost:9090/files/1698204887435-微信截图_20231018172251.png', 'USER', '男', '13899887799');
+INSERT INTO `user` VALUES (7, 'bbb', '123', 'bbb', NULL, 'USER', '男', NULL);
+INSERT INTO `user` VALUES (8, 'ccc', '123', 'ccc', NULL, 'USER', '男', NULL);
+INSERT INTO `user` VALUES (9, 'ddd', '123', 'ddd', NULL, 'USER', '男', NULL);
+INSERT INTO `user` VALUES (10, 'xcc', '123', 'xcc', 'http://localhost:9090/files/1697438073596-avatar.png', 'USER', NULL, NULL);
+INSERT INTO `user` VALUES (11, 'ass', '123', '阿克斯', 'http://localhost:9090/files/1698999056103-aRhODR5m4kUm06baad89133eedfdc4a7cd08001f6699.jpg', 'USER', '男', '13877889988');
 
-/* -- TODO
+-- TODO
 DROP TABLE IF EXISTS `user_bounty`;
 CREATE TABLE `user_bounty` (
   `user_id` int(11) NOT NULL COMMENT '用户ID',
   `balance` decimal(10, 2) NOT NULL DEFAULT '0.00' COMMENT '悬赏金余额',
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户悬赏金表';
- */
+
 -- TODO
-DROP TABLE IF EXISTS `reward`;
-CREATE TABLE `reward` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '悬赏任务ID',
-  `order_id` int(11) NULL DEFAULT NULL COMMENT '关联的订单ID',
-  `user1_id` int(11) NOT NULL COMMENT '接单人',
-  `user2_id` int(11) NOT NULL COMMENT '发起悬赏人',
-  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '任务描述，地址',
-  `reward` decimal(10, 2) NOT NULL COMMENT '悬赏金额',
-  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '未完成' COMMENT '任务完成状态',
-  `created_at` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '创建时间',
-  `updated_at` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '更新时间',
-  PRIMARY KEY (`order_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '悬赏任务表' ROW_FORMAT = DYNAMIC;
+-- DROP TABLE IF EXISTS `reward`;
+-- CREATE TABLE `reward` (
+--   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '悬赏任务ID',
+--   `order_id` int(11) NULL DEFAULT NULL COMMENT '关联的订单ID',
+--   `user1_id` int(11) NOT NULL COMMENT '接单人',
+--   `user2_id` int(11) NOT NULL COMMENT '发起悬赏人',
+--   `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '任务描述，地址',
+--   `reward` decimal(10, 2) NOT NULL COMMENT '悬赏金额',
+--   `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '未完成' COMMENT '任务完成状态',
+--   `created_at` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '创建时间',
+--   `updated_at` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '更新时间',
+--   PRIMARY KEY (`order_id`) USING BTREE
+-- ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '悬赏任务表' ROW_FORMAT = DYNAMIC;
 
 -- TODO
 DROP TABLE IF EXISTS `post`;
@@ -318,118 +411,47 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 
 
--- 生成address表示例数据
-INSERT INTO `address` (`address`, `user`, `phone`, `user_id`) VALUES
-('上海市浦东新区', '张三', '13888888888', 1),
-('北京市朝阳区', '李四', '13999999999', 2),
-('广州市天河区', '王五', '13666666666', 3),
-('深圳市南山区', '赵六', '13555555555', 4);
 
--- 生成admin表示例数据
-INSERT INTO `admin` (`username`, `password`, `name`, `avatar`, `role`, `phone`, `email`) VALUES
-('admin', 'admin123', '超级管理员', 'admin.jpg', 'admin', '18888888888', 'admin@example.com');
 
--- 生成banner表示例数据
-INSERT INTO `banner` (`img`, `business_id`) VALUES
-('banner1.jpg', 1),
-('banner2.jpg', 2),
-('banner3.jpg', 3);
 
--- 生成business表示例数据
-INSERT INTO `business` (`username`, `password`, `name`, `avatar`, `role`, `phone`, `info`, `address`, `license`, `status`, `time_range`, `type`) VALUES
-('business1', 'pwd123', '商家1', 'logo1.jpg', 'seller', '18811111111', '我们是一家美食店', '上海市徐汇区', 'license1.jpg', '已审核', '09:00-21:00', '餐饮'),
-('business2', 'pwd456', '商家2', 'logo2.jpg', 'seller', '18822222222', '我们是一家小吃店', '北京市海淀区', 'license2.jpg', '待审核', '08:00-20:00', '小吃'),
-('business3', 'pwd789', '商家3', 'logo3.jpg', 'seller', '18833333333', '我们是一家饮品店', '广州市白云区', 'license3.jpg', '已审核', '10:00-22:00', '饮品');
 
--- 生成cart表示例数据
-INSERT INTO `cart` (`goods_id`, `num`, `user_id`, `business_id`) VALUES
-(1, 2, 1, 1),
-(3, 1, 2, 2),
-(2, 3, 3, 3);
 
--- 生成category表示例数据
-INSERT INTO `category` (`name`, `business_id`) VALUES
-('热菜', 1),
-('凉菜', 1),
-('饮料', 3),
-('甜点', 3);
 
--- 生成collect表示例数据
-INSERT INTO `collect` (`business_id`, `user_id`) VALUES
-(1, 1),
-(2, 2),
-(3, 3);
+-- -- 生成user_bounty表示例数据
+-- INSERT INTO `user_bounty` (`user_id`, `balance`) VALUES
+-- (1, 100.00),
+-- (2, 50.00),
+-- (3, 80.00);
 
--- 生成comment表示例数据
-INSERT INTO `comment` (`content`, `star`, `user_id`, `business_id`, `order_id`, `time`, `goods_id`) VALUES
-('非常好吃，下次还会光顾！', 5.0, 1, 1, 1, '2024-03-15', 1),
-('口感一般，希望改进。', 3.5, 2, 2, 2, '2024-03-16', 2),
-('服务态度很好，点赞！', 4.5, 3, 3, 3, '2024-03-17', 3);
+-- -- 生成reward表示例数据
+-- INSERT INTO `reward` (`order_id`, `user1_id`, `user2_id`, `description`, `reward`, `status`, `created_at`, `updated_at`) VALUES
+-- (NULL, 2, 1, '送外卖到武汉大学', 20.00, '已完成', '2024-03-16', '2024-03-17'),
+-- (NULL, 1, 3, '送外卖到武汉大学', 30.00, '未完成', '2024-03-17', '2024-03-17');
 
--- 生成goods表示例数据
-INSERT INTO `goods` (`name`, `price`, `img`, `descr`, `origin`, `taste`, `specs`, `date`, `status`, `nutrition_id`, `discount`, `business_id`, `category_id`) VALUES
-('红烧肉', 28.80, 'food1.jpg', '正宗的红烧肉', '猪肉', '咸甜', '500g/份', '2024-03-10', '上架', NULL, 1.0, 1, 1),
-('凉拌黄瓜', 12.50, 'food2.jpg', '爽口的凉拌黄瓜', '黄瓜', '清淡', '200g/份', '2024-03-11', '上架', NULL, 1.0, 1, 2),
-('冰镇可乐', 5.00, 'drink1.jpg', '冰爽的可乐', '可乐', '甜', '500ml/瓶', '2024-03-12', '上架', NULL, 1.0, 3, 3),
-('草莓奶昔', 18.90, 'drink2.jpg', '鲜果的草莓奶昔', '草莓', '甜', '350ml/杯', '2024-03-13', '上架', NULL, 1.0, 3, 4);
+-- -- 生成post表示例数据
+-- INSERT INTO `post` (`user_id`, `title`, `content`, `likes`, `created_at`) VALUES
+-- (1, '美食分享', '今天吃了一顿超级美味的火锅！', 10, '2024-03-15'),
+-- (2, '快乐分享', '和朋友一起游乐园真开心！', 20, '2024-03-16'),
+-- (3, '生活分享', '和家人一起做了一顿丰盛的晚餐！', 15, '2024-03-17');
 
--- 生成notice表示例数据
-INSERT INTO `notice` (`title`, `content`, `time`, `user`) VALUES
-('重要通知', '本店特价活动开始了！', '2024-03-14', '管理员');
+-- -- 生成post_comment表示例数据
+-- INSERT INTO `post_comment` (`post_id`, `user_id`, `content`, `created_at`) VALUES
+-- (1, 2, '看起来好好吃哦！', '2024-03-16'),
+-- (1, 3, '下次约我一起去吃吧！', '2024-03-17'),
+-- (2, 1, '游乐园真的很有趣！', '2024-03-17');
 
--- 生成orders表示例数据
-INSERT INTO `orders` (`order_no`, `time`, `pay_type`, `pay_time`, `status`, `business_id`, `user`, `phone`, `address`, `user_id`, `amount`, `discount`, `actual`, /*`bounty_id`,*/ `comment`, `cover`, `name`, `reward`, `helptake_id`, `dormnumber`) VALUES
-('20240314001', '2024-03-14 10:00:00', '在线支付', '2024-03-14 10:05:00', '已完成', 1, '张三', '13888888888', '上海市浦东新区', 1, 58.60, 0.00, 58.60, '无', 'order1.jpg', '订单1', NULL, NULL, NULL),
-('20240314002', '2024-03-15 11:30:00', '货到付款', NULL, '待发货', 2, '李四', '13999999999', '北京市朝阳区', 2, 12.50, 0.00, 12.50, '加急配送', 'order2.jpg', '订单2', NULL, NULL, NULL),
-('20240314003', '2024-03-16 13:45:00', '在线支付', '2024-03-16 14:00:00', '已完成', 3, '王五', '13666666666', '广州市天河区', 3, 23.90, 0.00, 23.90, '无', 'order3.jpg', '订单3', NULL, NULL, NULL);
+-- -- 生成nutrition_info表示例数据
+-- INSERT INTO `nutrition_info` (`food_name`, `calories`, `protein`, `fat`) VALUES
+-- ('红烧肉', 350.0, 25.0, 18.0),
+-- ('凉拌黄瓜', 50.0, 2.0, 1.0),
+-- ('冰镇可乐', 150.0, 0.0, 0.0),
+-- ('草莓奶昔', 200.0, 5.0, 3.0);
 
--- 生成orders_item表示例数据
-INSERT INTO `orders_item` (`order_id`, `goods_name`, `goods_img`, `price`, `num`, `goods_id`) VALUES
-(1, '红烧肉', 'food1.jpg', 28.80, 2, 1),
-(2, '凉拌黄瓜', 'food2.jpg', 12.50, 1, 2),
-(3, '冰镇可乐', 'drink1.jpg', 5.00, 1, 3);
-
--- 生成user表示例数据
-INSERT INTO `user` (`username`, `password`, `name`, `avatar`, `role`, `sex`, `phone`) VALUES
-('user1', 'pwd123', '张三', 'avatar1.jpg', 'user', '男', '18888888888'),
-('user2', 'pwd456', '李四', 'avatar2.jpg', 'user', '女', '18999999999'),
-('user3', 'pwd789', '王五', 'avatar3.jpg', 'user', '男', '18777777777');
-
--- 生成user_bounty表示例数据
-/* INSERT INTO `user_bounty` (`user_id`, `balance`) VALUES
-(1, 100.00),
-(2, 50.00),
-(3, 80.00); */
-
--- 生成reward表示例数据
-INSERT INTO `reward` (`order_id`, `user1_id`, `user2_id`, `description`, `reward`, `status`, `created_at`, `updated_at`) VALUES
-(NULL, 2, 1, '送外卖到中关村', 20.00, '已完成', '2024-03-16', '2024-03-17'),
-(NULL, 1, 3, '送外卖到天河城', 30.00, '未完成', '2024-03-17', '2024-03-17');
-
--- 生成post表示例数据
-INSERT INTO `post` (`user_id`, `title`, `content`, `likes`, `created_at`) VALUES
-(1, '美食分享', '今天吃了一顿超级美味的火锅！', 10, '2024-03-15'),
-(2, '快乐分享', '和朋友一起游乐园真开心！', 20, '2024-03-16'),
-(3, '生活分享', '和家人一起做了一顿丰盛的晚餐！', 15, '2024-03-17');
-
--- 生成post_comment表示例数据
-INSERT INTO `post_comment` (`post_id`, `user_id`, `content`, `created_at`) VALUES
-(1, 2, '看起来好好吃哦！', '2024-03-16'),
-(1, 3, '下次约我一起去吃吧！', '2024-03-17'),
-(2, 1, '游乐园真的很有趣！', '2024-03-17');
-
--- 生成nutrition_info表示例数据
-INSERT INTO `nutrition_info` (`food_name`, `calories`, `protein`, `fat`) VALUES
-('红烧肉', 350.0, 25.0, 18.0),
-('凉拌黄瓜', 50.0, 2.0, 1.0),
-('冰镇可乐', 150.0, 0.0, 0.0),
-('草莓奶昔', 200.0, 5.0, 3.0);
-
--- 生成order_total_nutrition_info表示例数据
-INSERT INTO `order_total_nutrition_info` (`order_id`, `calories`, `protein`, `fat`) VALUES
-(1, 500.5, 25.3, 15.7),
-(2, 700.2, 30.8, 20.1),
-(3, 600.7, 28.5, 18.3),
-(4, 800.1, 35.2, 22.6),
-(5, 900.6, 40.6, 28.4);
+-- -- 生成order_total_nutrition_info表示例数据
+-- INSERT INTO `order_total_nutrition_info` (`order_id`, `calories`, `protein`, `fat`) VALUES
+-- (1, 500.5, 25.3, 15.7),
+-- (2, 700.2, 30.8, 20.1),
+-- (3, 600.7, 28.5, 18.3),
+-- (4, 800.1, 35.2, 22.6),
+-- (5, 900.6, 40.6, 28.4);
 

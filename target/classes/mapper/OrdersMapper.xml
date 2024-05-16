@@ -21,7 +21,6 @@
             <if test="orderNo != null">and orders.order_no like concat('%', #{orderNo}, '%')</if>
             <if test="businessId != null">and orders.business_id = #{businessId}</if>
             <if test="userId != null">and orders.user_id = #{userId}</if>
-            <if test="helptake_id != null">and orders.helptake_id = #{helptake_id}</if>
             <choose>
                 <when test="status == '全部'"></when>
                 <when test="status == '进行中'">
@@ -151,15 +150,6 @@
             </if>
             <if test="name != null">
                 name = #{name},
-            </if>
-            <if test="reward != null">
-                reward = #{reward},
-            </if>
-            <if test="helptake_id != null">
-                helptake_id = #{helptake_id},
-            </if>
-            <if test="dormnumber != null">
-                dormnumber = #{dormnumber},
             </if>
         </set>
         where id = #{id}
