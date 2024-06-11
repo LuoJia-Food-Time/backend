@@ -15,10 +15,10 @@ public class WebConfig implements  WebMvcConfigurer {
     // 加自定义拦截器JwtInterceptor，设置拦截规则
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(jwtInterceptor).addPathPatterns("/**")
-                .excludePathPatterns("/")
-                .excludePathPatterns("/login")
-                .excludePathPatterns("/register")
-                .excludePathPatterns("/files/**");
+//        registry.addInterceptor(jwtInterceptor).addPathPatterns("/**")
+//                .excludePathPatterns("/")
+//                .excludePathPatterns("/login")
+//                .excludePathPatterns("/register")
+//                .excludePathPatterns("/files/**");
     }
 }

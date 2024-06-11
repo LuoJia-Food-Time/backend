@@ -1,14 +1,11 @@
 package com.example.entity;
 
-import lombok.Data;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  * 订单信息
  */
-@Data
 public class Orders implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -55,7 +52,7 @@ public class Orders implements Serializable {
     /**帮拿ID*/
     private Integer helptake_id;
     /**宿舍号*/
-    private Integer dormnumber;
+    private String dormnumber;
 
     public Integer getId() {
         return id;
@@ -225,11 +222,12 @@ public class Orders implements Serializable {
         this.helptake_id = helptake_id;
     }
 
-    public Integer getDormnumber() {
+    public String getDormnumber() {
         return dormnumber;
     }
 
-    public void setDormnumber(Integer dormnumber) {
+    public void setDormnumber(String dormnumber) {
         this.dormnumber = dormnumber;
     }
+
 }

@@ -89,5 +89,10 @@ public class BusinessController {
         PageInfo<Business> pageInfo = businessService.selectPage(business, pageNum, pageSize);
         return Result.success(pageInfo);
     }
-
+    static int i=0;
+    @GetMapping("/test")
+    public Result test() {
+        System.out.println(i++);
+        return Result.success();
+    }
 }

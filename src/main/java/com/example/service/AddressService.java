@@ -8,6 +8,8 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 /**
@@ -25,9 +27,13 @@ public class AddressService {
     public void add(Address address) {
         Account currentUser = TokenUtils.getCurrentUser();
         address.setUserId(currentUser.getId());
+        test();
         addressMapper.insert(address);
     }
-
+    @Transactional
+    void test(){
+        System.out.println(1);
+    }
     /**
      * 删除
      */

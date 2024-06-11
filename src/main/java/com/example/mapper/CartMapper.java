@@ -36,6 +36,7 @@ public interface CartMapper {
      */
     List<Cart> selectAll(Cart cart);
 
-    @Delete("delete from cart where business_id = #{businessId} and user_id = #{userId}")
+    @Delete("delete from cart where  user_id = #{userId}")
+//    @Delete("delete from cart where business_id = #{businessId} and user_id = #{userId}")
     void deleteByBusiness(@Param("businessId") Integer businessId, @Param("userId") Integer userId);
 }

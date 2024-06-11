@@ -24,7 +24,7 @@ public class Goods {
     /** 原材料 */
     private String origin;
     /**营养信息的ID*/
-    private Integer nutritionId;
+    private String nutritionInfo;
 
     /** 口味 */
     private String taste;
@@ -46,14 +46,6 @@ public class Goods {
     private String categoryName;
 
     private Integer saleCount;
-
-    public Integer getNutritionId() {
-        return nutritionId;
-    }
-
-    public void setNutritionId(Integer nutritionId) {
-        this.nutritionId = nutritionId;
-    }
 
     public Integer getSaleCount() {
         return saleCount;

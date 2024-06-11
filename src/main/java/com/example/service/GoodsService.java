@@ -14,6 +14,7 @@ import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -101,6 +102,9 @@ public class GoodsService {
             goods.setBusinessId(currentUser.getId());  // 设置商家自己的Id作为查询条件
         }
         List<Goods> goodsList = goodsMapper.selectAll(goods);
+        Collections.sort(goodsList,(a,b)->{
+            return b.getPrice().compareTo(a.getPrice());
+        });
         for (Goods g : goodsList) {
             wrapGoods(g);
         }
